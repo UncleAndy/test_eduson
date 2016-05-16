@@ -20,4 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  your_collection: "Your collection"
+  collection: "Collection"
+  images: "Images"
+  links: "Links"
+  new: "Add new..."
+  delete_sure: "Are you sure for delete it?"
+  image_labels:
+    location: "Image file"
+    title: "Image title"
+    save: "Save"
+  errors:
+    images:
+      create: 'Can not create image.'
+  menu:
+    logout: "Logout"
+    login: "Login"
+    signup: "Sign Up"

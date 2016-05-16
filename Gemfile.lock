@@ -1,6 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Bootstrap-Image-Gallery-rails (1.0.1.3.1.0)
+      less-rails
+      therubyracer
+      twitter-bootstrap-rails
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
       actionview (= 4.2.6)
@@ -39,9 +43,14 @@ GEM
     airbrussh (1.0.1)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
+    autoprefixer-rails (6.3.6)
+      execjs
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.0)
     capistrano (3.5.0)
@@ -70,6 +79,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    commonjs (0.2.7)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     devise (4.1.0)
@@ -78,6 +88,8 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-russian (2.0.1.1)
+      devise
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -111,6 +123,14 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     kgio (2.10.0)
+    less (2.6.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.7.1)
+      actionpack (>= 4.0)
+      less (~> 2.6.0)
+      sprockets (> 2, < 4)
+      tilt
+    libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -119,6 +139,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
     mimemagic (0.3.1)
+    mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.12.0)
@@ -151,6 +172,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_layout (1.0.29)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -160,6 +182,7 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.4.4)
@@ -203,11 +226,19 @@ GEM
     sshkit (1.10.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.3)
     turbolinks (2.5.3)
       coffee-rails
+    twitter-bootstrap-rails (3.2.2)
+      actionpack (>= 3.1)
+      execjs (>= 2.2.2, >= 2.2)
+      less-rails (>= 2.5.0)
+      railties (>= 3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -227,19 +258,25 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  Bootstrap-Image-Gallery-rails
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
+  bootstrap-sass
   byebug
   capistrano-rails
   carrierwave
   coffee-rails (~> 4.1.0)
   devise
+  devise-russian
   factory_girl_rails
   haml
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   pg
   rails (= 4.2.6)
+  rails_layout
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

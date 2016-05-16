@@ -23,17 +23,25 @@ gem 'pg'
 gem 'haml'
 gem 'haml-rails'
 gem 'devise'
+gem 'devise-russian'
+
+gem 'mini_magick'
 gem 'carrierwave'
 
-group :test do
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
+gem 'Bootstrap-Image-Gallery-rails'
+
+group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 
 group :development do
-  gem 'rspec-rails'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rails_layout'
 end
 
