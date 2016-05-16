@@ -8,6 +8,9 @@
 /.bundle
 
 /.idea
+/public/assets
+/public/images
+/public/uploads
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
