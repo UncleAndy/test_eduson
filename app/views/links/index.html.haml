@@ -4,7 +4,7 @@
   - else
     = I18n.t('collection')
 = render partial: 'shared/collection_tabs', locals: { tab: 'links' }
-= link_to new_collection_link_path(@collection_id) do
+= link_to new_user_link_path(@user_id) do
   %button.btn.btn-primary.btn-actions
     = I18n.t('new')
 %table.table.table-bordered.table-condensed.table-striped
@@ -23,7 +23,7 @@
         %td
           = link.created_at
         %td
-          = link_to edit_collection_link_path(@collection_id, link.id) do
+          = link_to edit_user_link_path(@user_id, link.id) do
             %span.glyphicon.glyphicon-edit
-          = link_to collection_link_path(@collection_id, link.id), :method => :delete, :data => {:confirm => I18n.t("delete_sure")} do
+          = link_to user_link_path(@user_id, link.id), :method => :delete, :data => {:confirm => I18n.t("delete_sure")} do
             %span.glyphicon.glyphicon-remove

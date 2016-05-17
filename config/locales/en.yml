@@ -30,9 +30,21 @@ en:
     location: "Image file"
     title: "Image title"
     save: "Save"
+    new_title: "New image"
+    edit_title: "Change title"
+  links_labels:
+    url: "URL"
+    name: "Description"
+    save: "Save"
+    new_title: "New link"
+    edit_title: "Edit link"
   errors:
     images:
       create: 'Can not create image.'
+      update: 'Can not update image.'
+    links:
+      create: 'Can not create link.'
+      update: 'Can not update link.'
   menu:
     logout: "Logout"
     login: "Login"

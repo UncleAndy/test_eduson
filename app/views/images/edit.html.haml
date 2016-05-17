@@ -1,0 +1,10 @@
+%h2{:align => 'center'}
+  = I18n.t('image_labels.edit_title')
+.form-container
+  = form_for [@user, @image], :html => { :role => 'form', :class => 'forms' } do |f|
+    .form-group
+      %label{ for: "title" }
+        = I18n.t('image_labels.title')
+      = f.text_field :title, class: 'form-control', value: @image.title
+    %button.btn.btn-success{ type: 'submit' }
+      = I18n.t('image_labels.save')

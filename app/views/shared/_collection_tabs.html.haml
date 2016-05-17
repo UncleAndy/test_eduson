@@ -1,5 +1,5 @@
 %ul.nav.nav-tabs
   %li{:class => (tab == 'images' ? 'active' : nil)}
-    = link_to I18n.t('images'), collection_images_path(@collection_id)
+    = link_to I18n.t('images'), user_images_path(@user_id)
   %li{:class => (tab == 'links' ? 'active' : nil)}
-    = link_to I18n.t('links'), collection_links_path(@collection_id)
+    = link_to I18n.t('links'), user_links_path(@user_id)

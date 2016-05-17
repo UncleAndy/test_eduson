@@ -1,12 +1,14 @@
-= form_for [:collection, @image], :html => { :multipart => true, :role => 'form' } do |f|
-  = hidden_field(:image, :user_id, :value => current_user.id)
-  .form-group
-    %label{ for: "location" }
-      = I18n.t('image_labels.location')
-    = f.file_field :location, :style => 'width: 30%px;', class: 'form-control'
-  .form-group
-    %label{ for: "title" }
-      = I18n.t('image_labels.title')
-    = f.text_field :title, class: 'form-control'
-  %button.btn.btn-success{ type: 'submit' }
-    = I18n.t('image_labels.save')
+%h2{:align => 'center'}
+  = I18n.t('image_labels.new_title')
+.form-container
+  = form_for [@user, @image], :html => { :multipart => true, :role => 'form', :class => 'forms' } do |f|
+    .form-group
+      %label{ for: "location" }
+        = I18n.t('image_labels.location')
+      = f.file_field :location, :style => 'width: 30%px;', class: 'form-control'
+    .form-group
+      %label{ for: "title" }
+        = I18n.t('image_labels.title')
+      = f.text_field :title, class: 'form-control'
+    %button.btn.btn-success{ type: 'submit' }
+      = I18n.t('image_labels.save')

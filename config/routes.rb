@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :collections, only:[] do
+  resources :users, only:[] do
     resources :links
     resources :images
   end

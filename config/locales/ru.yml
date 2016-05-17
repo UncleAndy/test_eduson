@@ -30,9 +30,21 @@ ru:
     location: "Файл картинки"
     title: "Описание"
     save: "Сохранить"
+    new_title: "Новая картинка"
+    edit_title: "Изменение описания"
+  links_labels:
+    url: "URL"
+    name: "Описание"
+    save: "Сохранить"
+    new_title: "Новая ссылка"
+    edit_title: "Изменение ссылки"
   errors:
     images:
       create: 'Ошибка при создании картинки.'
+      update: 'Ошибка при сохранении картинки.'
+    links:
+      create: 'Ошибка при создании ссылки.'
+      update: 'Ошибка при сохранении ссылки.'
   menu:
     logout: "Выйти"
     login: "Войти"

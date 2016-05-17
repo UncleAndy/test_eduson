@@ -1,45 +1,64 @@
 class ImagesController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
-  before_filter :set_collection_id
+  before_filter :set_user_id
+  before_filter :set_image_id, :only => [:edit, :update, :destroy]
 
   def index
-    @user = User.find(@collection_id)
+    @user = User.find(@user_id)
     @images = @user.images
 
-    @self_collection = (current_user.present? && (current_user.id.to_i == @collection_id))
+    @self_collection = (current_user.present? && (current_user.id.to_i == @user_id))
   end
 
   def new
     @image = current_user.images.new
+    @user = current_user
   end
 
   def create
-    @image = Image.new(image_params)
+    @image = Image.new(new_image_params)
+    @image.user_id = @user_id
 
     if @image.save
-      redirect_to collection_images_path(@collection_id)
+      redirect_to user_images_path(@user_id)
     else
-      redirect_to new_collection_image_path(@collection_id), notice: I18n.t('errors.images.create_error')
+      redirect_to new_user_image_path(@user_id), notice: I18n.t('errors.images.create_error')
     end
   end
 
   def edit
+    @image = Image.find(@image_id)
+    @user = current_user
   end
 
   def update
+    @image = Image.find(@image_id)
+    if @image.update_column(:title, params[:image][:title])
+      redirect_to user_images_path(@user_id)
+    else
+      redirect_to new_user_image_path(@user_id), notice: I18n.t('errors.images.update_error')
+    end
   end
 
   def destroy
+    @image = Image.find(@image_id)
+    @image.remove_location!
+    @image.delete
+    redirect_to user_images_path(@user_id)
   end
 
   private
 
-  def set_collection_id
-    @collection_id = params[:collection_id].to_i
+  def set_user_id
+    @user_id = params[:user_id].to_i
   end
 
-  def image_params
+  def set_image_id
+    @image_id = params[:id].to_i
+  end
+
+  def new_image_params
     params.require(:image).permit(:user_id, :title, :location)
   end
 end

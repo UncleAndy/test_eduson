@@ -5,6 +5,8 @@ class Image < ActiveRecord::Base
 
   belongs_to :user
 
+  default_scope { order('created_at DESC') }
+
   def random_string
     @randomstring ||= SecureRandom.hex(10)
   end
