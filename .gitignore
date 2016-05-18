@@ -11,6 +11,7 @@
 /public/assets
 /public/images
 /public/uploads
+/coverage
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

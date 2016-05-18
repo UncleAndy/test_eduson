@@ -87,41 +87,41 @@ RSpec.describe LinksController, type: :controller do
     end
 
     describe "#new" do
-      it "должно быть перенаправление на страницу кaртинок с сообщением о нехватке прав" do
+      it "должен перенаправлять на главную с сообщением о нехватке прав" do
         get :new, { :user_id => @user.id }
-        expect(response).to redirect_to(user_images_path(@user.id))
+        expect(response).to redirect_to(root_path)
         expect(flash[:notice]).to eq(I18n.t('errors.no_user_permission'))
       end
     end
 
     describe "#create" do
-      it "должно быть перенаправление на страницу кaртинок с сообщением о нехватке прав" do
+      it "должен перенаправлять на главную с сообщением о нехватке прав" do
         post :create, { :user_id => @user.id, :link => {} }
-        expect(response).to redirect_to(user_images_path(@user.id))
+        expect(response).to redirect_to(root_path)
         expect(flash[:notice]).to eq(I18n.t('errors.no_user_permission'))
       end
     end
 
     describe "#edit" do
-      it "должно быть перенаправление на страницу кaртинок с сообщением о нехватке прав" do
+      it "должен перенаправлять на главную с сообщением о нехватке прав" do
         get :edit, { :user_id => @user.id, :id => 1 }
-        expect(response).to redirect_to(user_images_path(@user.id))
+        expect(response).to redirect_to(root_path)
         expect(flash[:notice]).to eq(I18n.t('errors.no_user_permission'))
       end
     end
 
     describe "#update" do
-      it "должно быть перенаправление на страницу кaртинок с сообщением о нехватке прав" do
+      it "должен перенаправлять на главную с сообщением о нехватке прав" do
         put :update, { :user_id => @user.id, :id => 1, :link => {} }
-        expect(response).to redirect_to(user_images_path(@user.id))
+        expect(response).to redirect_to(root_path)
         expect(flash[:notice]).to eq(I18n.t('errors.no_user_permission'))
       end
     end
 
     describe "#destroy" do
-      it "должно быть перенаправление на страницу кaртинок с сообщением о нехватке прав" do
+      it "должен перенаправлять на главную с сообщением о нехватке прав" do
         delete :destroy, { :user_id => @user.id, :id => 1 }
-        expect(response).to redirect_to(user_images_path(@user.id))
+        expect(response).to redirect_to(root_path)
         expect(flash[:notice]).to eq(I18n.t('errors.no_user_permission'))
       end
     end
