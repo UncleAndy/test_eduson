@@ -1,14 +1,19 @@
 class ImagesController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
+  before_filter :check_user_permission
 
   before_filter :set_user_id
   before_filter :set_image_id, :only => [:edit, :update, :destroy]
 
   def index
-    @user = User.find(@user_id)
-    @images = @user.images
+    @user = User.find_by_id(@user_id)
+    if (@user.blank?)
+      redirect_to root_path, notice: I18n.t('errors.absent_collection')
+    else
+      @images = @user.images
 
-    @self_collection = (current_user.present? && (current_user.id.to_i == @user_id))
+      @self_collection = (current_user.present? && (current_user.id.to_i == @user_id))
+    end
   end
 
   def new

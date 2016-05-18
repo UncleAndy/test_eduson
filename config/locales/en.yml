@@ -39,6 +39,8 @@ en:
     new_title: "New link"
     edit_title: "Edit link"
   errors:
+    absent_collection: 'Collection not exists'
+    no_user_permission: 'You have not permission for this action'
     images:
       create: 'Can not create image.'
       update: 'Can not update image.'
@@ -49,3 +51,5 @@ en:
     logout: "Logout"
     login: "Login"
     signup: "Sign Up"
+    collection: "Your collection"
+    home: "Home"

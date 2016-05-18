@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
     before_filter :authenticate_user!, except: [:index]
+    before_filter :check_user_permission, except: [:index]
 
     before_filter :set_user_id
     before_filter :set_link_id, :only => [:edit, :update, :destroy]

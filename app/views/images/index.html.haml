@@ -4,9 +4,10 @@
   - else
     = I18n.t('collection')
 = render partial: 'shared/collection_tabs', locals: { tab: 'images' }
-= link_to new_user_image_path(@user_id) do
-  %button.btn.btn-primary.btn-actions
-    = I18n.t('new')
+- if @self_collection
+  = link_to new_user_image_path(@user_id) do
+    %button.btn.btn-primary.btn-actions
+      = I18n.t('new')
 #blueimp-gallery.blueimp-gallery
   .slides
   %h3.title
@@ -35,9 +36,10 @@
       %div.image-list-container
         %a.image-list-link{"data-gallery" => "", :href => img.location.url, :title => img.title}
           %img.image-list-img{:alt => img.title, :src => img.location.thumb.url}/
-        %div.image-list-actions-container
-          %div.image-list-actions
-            = link_to edit_user_image_path(@user_id, img.id) do
-              %span.glyphicon.glyphicon-edit
-            = link_to user_image_path(@user_id, img.id), :method => :delete, :data => {:confirm => I18n.t("delete_sure")} do
-              %span.glyphicon.glyphicon-remove
+        - if @self_collection
+          %div.image-list-actions-container
+            %div.image-list-actions
+              = link_to edit_user_image_path(@user_id, img.id) do
+                %span.glyphicon.glyphicon-edit
+              = link_to user_image_path(@user_id, img.id), :method => :delete, :data => {:confirm => I18n.t("delete_sure")} do
+                %span.glyphicon.glyphicon-remove
